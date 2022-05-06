@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% load static %}
+{% load i18n %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/8e8d5e63b3.js"></script><!--Icone -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> <!-- AOS Librairy-->
+    <title>Tianjin Library &mdash; Accueil</title>
+</head>
+<body>
+    <h1>Bibliothèque de Tianjin</h1>
+        <div class="container_book">
+            <div class="title_book">
+                <p data-aos= "fade-left" class="top_title">Pour vous</p>
+                <h2 data-aos= "fade-right">Les livres</h2>
+                <p  data-aos= "fade-left" class="top_title">en rayon</p>
+            </div>
+        {% if list_book %}    
+            {% for book in list_book %}    
+                <div data-aos="fade-top" class="book_card">
+                    <div>
+                        <h1>{{ book.name_book }}</h1>
+                        <h2>{{ book.author }}</h2>
+                        <p>{{ book.category }}</p>
+                        <p>{{ book.langage }}</p>
+                        <div>
+                            <img src="{{ book.picture_book.url }}"/>
+                        </div>
+                        <div class="separator"></div>
+                        <p>{{ book.synopsis_book }}</p>
+                    </div>
+                    <div>
+                        {% language 'fr' %}
+                        <h5>{{ book.date_book|date:'d F Y' }}</h5>
+                        {% endlanguage %}
+                    </div>
+                    <div>
+                        <img src="{{ picture_author.url }}"/>
+                    </div>
+                </div>
+        {% endfor %}
+    {% else %}
+        <p>Pas de livres en rayon disponibles</p>
+    </div>
+    {% endif %}
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="{% static 'library/JS/script.js' %}"></script>
+
+    <script>
+        AOS.init();
+    </script>
+    <!-- END SCRIPT -->
+
+</body>
+</html>
