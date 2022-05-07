@@ -12,6 +12,7 @@
     <title>Tianjin Library &mdash; Accueil</title>
 </head>
 <body>
+
     <!-- nav bar -->
     <div id="navbar">
         <div class="logo">
@@ -20,22 +21,24 @@
                 <h2 data-aos="fade-left" data-aos-duration="2000">天津滨海图书馆</h2>
             </a>
         </div>
-        <div data-aos="fade-left" data-aos-duration="2000" class="nav">
+        <div data-aos="fade-left" data-aos-duration="2000"  class="nav">
             <a href="{% url 'library:index' %}">Accueil</a>
             <a href="{% url 'library:liste' %}">Livres</a>
             <a href="#">Bibliothèque</a>
         </div>
     </div>
 
+    <!-- search section -->
     <div class="searchbar">
-        <h1 class="titreH1">Bibliothèque de Tianjin</h1>
-        <h2 class="titreH2">Un chef d’oeuvre architectural pour célébrer la culture et les livres</h2>
+        <h1 class="titreH1" data-aos="fade-right" data-aos-duration="2000" data-aos-easing="ease-in-out">Bibliothèque de Tianjin</h1>
+        <h2 class="titreH2" data-aos="fade-left" data-aos-duration="2000">Un chef d’oeuvre architectural pour célébrer la culture et les livres</h2>
         <form method="post" action="{% url 'library:resultat' %}">
             {% csrf_token %}
             <input type="text" id="searchInput" name="searchInput"/>
             <input type="submit" value="Rechercher">
         </form>
     </div>
+
     {% block content %} 
     <!-- Header section -->
     <div class="header">
@@ -128,19 +131,19 @@
 </div>
     {% endblock %}
 
+    <!-- footer section -->
     <footer>
         <div class="footer">
             By Kheandee, Ace and Mojo-jojo
         </div>
     </footer>
 
+    <!-- script section -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="{% static 'library/JS/script.js' %}"></script>
     <script>
         $(function() {
-
             Books.init();
-
         });
     </script>
 
