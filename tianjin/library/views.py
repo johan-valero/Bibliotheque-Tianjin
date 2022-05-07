@@ -21,3 +21,16 @@ def detail(request, book_id):
     book = get_object_or_404(Book, pk=book_id)
     context = {'book': book}
     return render(request, 'library/detail.html', context)
+
+def liste(request):
+    book = Book.objects.order_by('id')
+    category =  Category.objects.all()
+    langage =  Langage.objects.all()
+    author = Author.objects.all()
+    context = {
+        'book': book,
+        'category': category,
+        'langage': langage,
+        'author': author,
+    }
+    return render(request, 'library/liste.html', context)

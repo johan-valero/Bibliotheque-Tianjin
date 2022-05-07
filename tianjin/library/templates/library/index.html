@@ -12,16 +12,42 @@
     <title>Tianjin Library &mdash; Accueil</title>
 </head>
 <body>
-    <!-- Titre -->
-    <h1 data-aos="fade-right" data-aos-duration="2000" >Bibliothèque de Tianjin</h1>
-    <h2 data-aos="fade-left" data-aos-duration="2000">天津滨海图书馆</h2>
+    <!-- nav bar -->
+    <div id="navbar">
+        <div class="logo">
+            <a href="{% url 'library:index' %}">
+                <h1 data-aos="fade-right" data-aos-duration="2000">Bibliothèque de Tianjin</h1>
+                <h2 data-aos="fade-left" data-aos-duration="2000">天津滨海图书馆</h2>
+            </a>
+        </div>
+        <div data-aos="fade-left" data-aos-duration="2000" class="nav">
+            <a href="{% url 'library:index' %}">Accueil</a>
+            <a href="{% url 'library:liste' %}">Livres</a>
+            <a href="#">Bibliothèque</a>
+        </div>
+    </div>
 
-    {% block content %}
+    {% block content %} 
+    <!-- Header section -->
+    <!-- <h1 data-aos="fade" data-aos-duration="2000" class="titre_gros">Un ocean de livre</h1> -->
+    <div class="header">
+        <div class="video_pres">
+            <video autoplay muted loop class="myvideo">
+                <source src="../../static/library/images/pexels-muhammad-shukri-shuk-6623626.mp4" type="video/mp4">
+            </video>
+            <div class="header_descr">
+                <h2 data-aos="fade-right" data-aos-duration="2000">La bibliothèque de Tianjin des livres comme s’il en pleuvait !</h2>
+                <p> 
+                    Ce projet s’inscrit dans un Masterplan visant à doter Tianjin, grande ville portuaire située à une centaine de kilomètres de Pékin, d’un quartier culturel. Seules trois années séparent le moment où le Néerlandais Winy Maas et son agence MVRDV dessinent les premières esquisses de la bibliothèque, et son inauguration en 2017. Au centre de l’atrium trône une immense sphère lumineuse abritant un auditorium. Autour de cet « œil » se déploient, du sol au plafond, des étagères ondulantes dotées d’escaliers : on peut y circuler librement, s’y asseoir ou même discuter… Inutile toutefois d’essayer d’accéder aux rangées les plus élevées. Pour respecter le court délai de livraison, l’architecte n’a pas pu concrétiser la totalité de son projet. Les livres placés en hauteur sont donc des trompe-l’œil !
+                </p>
+            </div> 
+        </div>
+    </div>
     
     <!-- livres -->
     {% if list_book %}    
         <div class="container">
-            <h1 data-aos="fade-right" data-aos-duration="2000">Nos livres disponibles</h1>
+            <h1 data-aos="fade-right" data-aos-duration="2000" class="titreH1">Nos nouveautés</h1>
             {% for book in list_book %}
                 <div data-aos="fade" data-aos-duration="3000"  class="main">
                     <ul id="bk-list" class="bk-list clearfix">
@@ -76,22 +102,29 @@
     <!-- fin livres -->
 
     <!-- Createur de la bibliothéque -->
+    <div class="bg_index">
     <center>
         <div class="creator">
-            <h1 data-aos="fade-right" data-aos-duration="2000">Createur</h1>
-            <h2 data-aos="fade-left" data-aos-duration="2000">Winy Maas</h2>
+            <h1 data-aos="fade-right" data-aos-duration="2000" class="titreH1">Architecte</h1>
+            <h2 data-aos="fade-left" data-aos-duration="2000" class="titreH2">Winy Maas</h2>
             <div class="descr">
-                <p data-aos="fade-right" data-aos-duration="2000">
+                <p data-aos="fade" data-aos-duration="2000">
                     "Je compare le projet à ceux des concepteurs de bibliothèques du XVIIIe siècle. Leur volonté était de montrer les livres, de les mettre en valeur. Ces constructions sont monumentales et apportent ainsi une merveilleuse noblesse aux ouvrages qu’elles présentent. Pour moi, ces lieux sont très inspirants et me donnent envie de m’y attarder pour découvrir toujours plus de livres. Nous avons donc essayé de créer le même effet, mais avec une touche de modernité, bien sûr.
     
                     Trois ans se sont écoulés entre le premier croquis et l’ouverture du bâtiment. Pour une construction de cette taille, tout a été extrêmement rapide. Nous sommes très satisfaits du résultat, même si tout ne s’est pas déroulé exactement comme nous l’avions prévu. En effet, lors de son ouverture, la bibliothèque a essuyé plusieurs critiques, notamment pour ses trompe-l’oeil." 
                 </p>
-                <img data-aos="fade-left" data-aos-duration="2000" src="{% static 'library/images/img-4644.jpg' %}">
+                <img data-aos="fade" data-aos-duration="2000" src="{% static 'library/images/img-4644.jpg' %}">
             </div>
         </div>
     </center>
-
+</div>
     {% endblock %}
+
+    <footer>
+        <div class="footer">
+            By Kheandee, Ace and Mojo-jojo
+        </div>
+    </footer>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="{% static 'library/JS/script.js' %}"></script>
@@ -109,6 +142,5 @@
         AOS.init();
     </script>
     <!-- END SCRIPT -->
-
 </body>
 </html>
