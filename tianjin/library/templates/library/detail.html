@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% load static %}
+{% load i18n %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/8e8d5e63b3.js"></script><!--Icone -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> <!-- AOS Librairy-->
+    <link rel="stylesheet" type="text/css" href="{% static 'library/CSS/detail.css' %}"> <!--CSS-->
+    <title>Tianjin Library &mdash; Détails</title>
+</head>
+<body>
+
+
+{% block title %}
+    <h1 data-aos="fade-right" data-aos-duration="2000" >Bibliothèque de Tianjin</h1>
+    <h2 data-aos="fade-left" data-aos-duration="2000">天津滨海图书馆</h2>
+{% endblock %}
+
+
+{% block content %}
+<section class="container_book_detail">
+    <div class="book" style="--pages: 15">
+        <div class="cover page">
+            <div class="cover-content">
+                <img src="{{ book.picture_book.url }}">
+                <h2>{{ book.name_author }}</h2>
+            </div>
+        </div>
+        <div class="page" style="--id: 1"></div>
+        <div class="page" style="--id: 2"></div>
+        <div class="page" style="--id: 3"></div>
+        <div class="page" style="--id: 4"></div>
+        <div class="page" style="--id: 5"></div>
+        <div class="page" style="--id: 6"></div>
+        <div class="page" style="--id: 7"></div>
+        <div class="page" style="--id: 8"></div>
+        <div class="page" style="--id: 9"></div>
+        <div class="page" style="--id: 10"></div>
+        <div class="page" style="--id: 11"></div>
+        <div class="page" style="--id: 12"></div>
+        <div class="page" style="--id: 13"></div>
+        <div class="page" style="--id: 14"></div>
+        <div class="page" style="--id: 15"></div>
+        <main class="page" style="--id: 15">
+            <h1>{{ book.name_book }}</h1>
+            <h2>{{ book.author }}</h2>
+            <p>{{ book.synopsis_book}}</p>
+            <!-- <p>
+                {% language 'fr' %}
+                <b>Date de publication</b> : {{ book.date_book|date:'d F Y' }}
+                {% endlanguage %}
+            </p>
+            <p><b>Catégorie</b> : {{ book.category }}</p>
+            <p><b>Langue</b> : {{ book.language }}</p> -->
+            {% for auth in book.author.all %}
+                <p>{{ auth.name_author }} {{ auth.firstname_author }}</p>
+                <p>{{ auth.birthdate_author }}</p>
+                <img src="{{ auth.picture_author.url }}">
+            {% endfor %}
+        </main>
+        <div class="back page"></div>
+    </div>
+</section>
+
+{% endblock %}

@@ -17,7 +17,7 @@ def index(request):
     }
     return render(request, 'library/index.html', context)
 
-def detail(request):
-    detail = get_object_or_404(Book, pk=publication_id)
-    context = {'detail': detail}
+def detail(request, book_id):
+    book = get_object_or_404(Book, pk=book_id)
+    context = {'book': book}
     return render(request, 'library/detail.html', context)
