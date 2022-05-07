@@ -27,9 +27,17 @@
         </div>
     </div>
 
+    <div class="searchbar">
+        <h1 class="titreH1">Bibliothèque de Tianjin</h1>
+        <h2 class="titreH2">Un chef d’oeuvre architectural pour célébrer la culture et les livres</h2>
+        <form method="post" action="{% url 'library:resultat' %}">
+            {% csrf_token %}
+            <input type="text" id="searchInput" name="searchInput"/>
+            <input type="submit" value="Rechercher">
+        </form>
+    </div>
     {% block content %} 
     <!-- Header section -->
-    <!-- <h1 data-aos="fade" data-aos-duration="2000" class="titre_gros">Un ocean de livre</h1> -->
     <div class="header">
         <div class="video_pres">
             <video autoplay muted loop class="myvideo">
@@ -49,7 +57,7 @@
         <div class="container">
             <h1 data-aos="fade-right" data-aos-duration="2000" class="titreH1">Nos nouveautés</h1>
             {% for book in list_book %}
-                <div data-aos="fade" data-aos-duration="3000"  class="main">
+                <div data-aos="fade" data-aos-duration="2000"  class="main">
                     <ul id="bk-list" class="bk-list clearfix">
                         <li>
                             <div class="bk-book book-1 bk-bookdefault">

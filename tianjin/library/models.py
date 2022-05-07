@@ -12,6 +12,9 @@ class Author(models.Model):
     def __str__(self):
         affiche = f"{self.firstname_author} {self.name_author}"
         return affiche
+    
+    def readLines(self):
+        return f"{self.firstname_author} {self.name_author}"
 
 class Category(models.Model):
     name_category = models.CharField(max_length=100)
@@ -20,12 +23,18 @@ class Category(models.Model):
         affiche = f"{self.name_category}"
         return affiche
 
+    def readLines(self):
+        return f"{self.name_category}"
+
 class Langage(models.Model):
     name_langage = models.CharField(max_length=50)
 
     def __str__(self):
         affiche = f"{self.name_langage}"
         return affiche
+
+    def readLines(self):
+        return f"{self.name_langage}"
 
 class Book(models.Model):
     name_book = models.CharField(max_length=50)
@@ -39,3 +48,6 @@ class Book(models.Model):
     def __str__(self):
         affiche = f"{self.name_book}"
         return affiche
+
+    def readLines(self):
+        return f"{self.name_book}"
