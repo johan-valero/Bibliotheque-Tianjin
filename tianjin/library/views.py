@@ -22,7 +22,9 @@ def index(request):
 
 def detail(request, book_id):
     book = get_object_or_404(Book, pk=book_id)
-    context = {'book': book}
+    context = {
+        'book': book
+    }
     return render(request, 'library/detail.html', context)
 
 def liste(request):
@@ -36,7 +38,7 @@ def liste(request):
         'langage': langage,
         'author': author,
     }
-    return render(request, 'library/liste.html', context)
+    return render(request, 'library/liste.html', context)   
 
 
 def resultat(request):

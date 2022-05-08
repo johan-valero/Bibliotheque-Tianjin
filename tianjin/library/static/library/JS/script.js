@@ -1,5 +1,3 @@
-
-
 // --------- animation book
 
     var Books = (function () {
