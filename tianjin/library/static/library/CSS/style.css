@@ -237,9 +237,12 @@ form{
 /* ========= NOUVEAUTE CONTENT ========= */
 .container{
     width: 100vw;
-    height: 100vh;
+    height: auto;
     display: flex;
+    justify-content: center;
     align-items: center;
+    /* flex-wrap: wrap; */
+    margin: 50px;
 }
 
 .bk-list {
