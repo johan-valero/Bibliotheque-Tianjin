@@ -44,8 +44,12 @@ def liste(request):
 
 def category(request):
     category =  Category.objects.order_by('id')
+    langage =  Langage.objects.order_by('id')
+    author = Author.objects.order_by('id')
     context = {
         'category': category,
+        'langage': langage,
+        'author': author,
     }
     return render(request, 'library/category.html', context)
 

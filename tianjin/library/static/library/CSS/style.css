@@ -596,6 +596,12 @@ form{
 }
 
 /* ========== CATEGORY PAGE ========== */
+.contain_categ{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .container_category {
     top: 0;
     right: 0;
