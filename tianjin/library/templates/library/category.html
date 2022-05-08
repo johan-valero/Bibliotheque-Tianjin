@@ -12,10 +12,10 @@
                         <p>Genres littéraires</p>
                         <hr>
                     </div>
-                    {% for categ in category %}
+                    {% for categ in category_list %}
                         <div class="items-body">
                             <div class="items-body-content">
-                                <a href="#"><span>{{ categ.name_category }}</span></a>
+                                <a href="{% url 'library:list_category' categ.id %}"><span>{{ categ.name_category }}</span></a>
                                 <i class="fa fa-angle-right"></i>
                             </div>
                         </div>

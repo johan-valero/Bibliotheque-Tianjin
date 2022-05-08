@@ -43,11 +43,11 @@ def liste(request):
 
 
 def category(request):
-    category =  Category.objects.order_by('id')
+    category_list =  Category.objects.order_by('id')
     langage =  Langage.objects.order_by('id')
     author = Author.objects.order_by('id')
     context = {
-        'category': category,
+        'category_list': category_list,
         'langage': langage,
         'author': author,
     }
@@ -55,7 +55,7 @@ def category(request):
 
 def list_category(request, category_id):
     category = get_object_or_404(Category, pk=category_id)
-    list_book = Book.objects.filter(category_id=category_id)
+    list_book = Book.objects.filter(category_id=category_id).values()
     context = {
         'category':category,
         'list_book': list_book,

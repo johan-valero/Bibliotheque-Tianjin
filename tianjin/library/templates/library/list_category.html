@@ -5,8 +5,8 @@
 {% block content %}
     <!-- Category List -->
     {% if list_book %}    
+    <h1 data-aos="fade-right" data-aos-duration="1000" class="titreH1">{{ category.name_category}}</h1>
         <div class="container">
-            <h1 data-aos="fade-right" data-aos-duration="1000" class="titreH1">{{ name_category}}</h1>
             {% for book in list_book %}
                 <div data-aos="fade" data-aos-duration="1000"  class="main">
                     <ul id="bk-list" class="bk-list clearfix">
@@ -56,7 +56,7 @@
             {% endfor %}
         </div> <!-- end container -->
     {% else %}
-        <p>Pas de livres disponibles dans cette catégorie</p>
+        <h1 class="titre_new">Pas de livres disponibles dans cette catégorie</h1>
     {% endif %}
     <!-- fin -->
 </div>
