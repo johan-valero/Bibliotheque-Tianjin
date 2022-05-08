@@ -1,0 +1,63 @@
+{% extends "library/liste.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+    <!-- Category List -->
+    {% if list_book %}    
+        <div class="container">
+            <h1 data-aos="fade-right" data-aos-duration="1000" class="titreH1">{{ name_category}}</h1>
+            {% for book in list_book %}
+                <div data-aos="fade" data-aos-duration="1000"  class="main">
+                    <ul id="bk-list" class="bk-list clearfix">
+                        <li>
+                            <div class="bk-book book-1 bk-bookdefault">
+                                <div class="bk-front">
+                                    <div class="bk-cover-back"></div>
+                                    <div class="bk-cover" style="background-image: url({{book.picture_book.url}});">
+                                        <h2>
+                                            <img src="{{ book.picture_book.url }}">
+                                            <span>{{ book.author }}</span>
+                                            <span>{{ book.name_book }}</span>
+                                        </h2>
+                                    </div>
+                                </div>
+                                <div class="bk-back">
+                                    <p>“{{ book.synopsis_book }}”.</p>
+                                </div>
+                                <div class="bk-right"></div>
+                                <div class="bk-left">
+                                    <h2>
+                                        <span>{{ book.author }}</span>
+                                        <span>{{ book.name_book }}</span>
+                                    </h2>
+                                </div>
+                                <div class="bk-top"></div>
+                                <div class="bk-bottom"></div>
+                            </div>
+                            <div class="bk-info">
+                                <h3>
+                                    <span>{{ book.name_book }}</span>
+                                    <span><b>{{ book.author }}</b></span>
+                                </h3>
+                                <p>
+                                    {% language 'fr' %}
+                                    <b>Date de publication</b> : {{ book.date_book|date:'d F Y' }}
+                                    {% endlanguage %}
+                                </p>
+                                <p><b>Catégorie</b> : {{ book.category }}</p>
+                                <p><b>Langue</b> : {{ book.language }}</p>
+                                <button class="bk-bookback">Résumé</button>
+                                <button><a href="{% url 'library:detail' book.id %}">Détails</a></button>
+                            </div>
+                        </li>
+                    </ul> 
+                </div> <!-- end main -->
+            {% endfor %}
+        </div> <!-- end container -->
+    {% else %}
+        <p>Pas de livres disponibles dans cette catégorie</p>
+    {% endif %}
+    <!-- fin -->
+</div>
+{% endblock %}    

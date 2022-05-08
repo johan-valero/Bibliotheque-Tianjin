@@ -24,6 +24,7 @@
         <div data-aos="fade-left" data-aos-duration="2000"  class="nav">
             <a href="{% url 'library:index' %}">Accueil</a>
             <a href="{% url 'library:liste' %}">Livres</a>
+            <a href="{% url 'library:category' %}">Catégories</a>
         </div>
     </div>
 
@@ -38,7 +39,7 @@
                 <i class="fa fa-search"></i>
             </button>
         </form>
-        <p>Tags : <a href="{% url 'library:list_by_category' %}">Catégorie</a>, <a href="#">Auteur</a>, <a href="#">Langue</a>, <a href="#">Titre</a></p>
+        <p>Tags : <a href="{% url 'library:category' %}">Catégorie</a>, <a href="#">Auteur</a>, <a href="#">Langue</a>, <a href="#">Titre</a></p>
     </div>
 
     {% block content %} 

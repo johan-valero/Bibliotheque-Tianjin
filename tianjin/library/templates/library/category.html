@@ -1,0 +1,25 @@
+{% extends "library/liste.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+    <!-- Category -->
+    <h1 data-aos="fade-right" data-aos-duration="2000" class="titreH1"> Nos catégories</h1>
+            <div class="container_category">
+                <div class="items">
+                <div class="items-head">
+                    <p>Genres littéraires</p>
+                    <hr>
+                </div>
+                {% for categ in category %}
+                    <div class="items-body">
+                        <div class="items-body-content">
+                            <a href="#"><span>{{ categ.name_category }}</span></a>
+                            <i class="fa fa-angle-right"></i>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            </div>
+<!-- fin category -->
+{% endblock %}

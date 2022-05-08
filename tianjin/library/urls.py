@@ -7,5 +7,6 @@ urlpatterns = [
     path('<int:book_id>/detail/', views.detail, name='detail'),
     path('liste/', views.liste, name='liste'),
     path('resultat/', views.resultat, name='resultat'),
-    path('list_by_category/', views.list_by_category, name='list_by_category')
+    path('category/', views.category, name='category'),
+    path('<int:category_id>/list_category/', views.list_category, name='list_category'),
 ]

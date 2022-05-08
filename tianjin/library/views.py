@@ -4,7 +4,6 @@ from . models import Author, Category, Langage, Book
 from django import template
 from django.template.loader import get_template 
 from django.template import loader
-# from django.contrib.auth.models import User
 
 # Create your views here.
 def index(request):
@@ -43,15 +42,21 @@ def liste(request):
     return render(request, 'library/liste.html', context)   
 
 
-def list_by_category(request):
-    category =  Category.objects.all()
-    book_list = Book.objects.filter(category = category)
+def category(request):
+    category =  Category.objects.order_by('id')
     context = {
         'category': category,
-        'book_list': book_list
     }
-    return render(request, 'library/list_by_category.html', context)
+    return render(request, 'library/category.html', context)
 
+def list_category(request, category_id):
+    category = get_object_or_404(Category, pk=category_id)
+    list_book = Book.objects.filter(category_id=category_id)
+    context = {
+        'category':category,
+        'list_book': list_book,
+    }
+    return render(request, 'library/list_category.html', context)
 
 def resultat(request):
     context = {}
