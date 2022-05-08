@@ -38,50 +38,33 @@ def liste(request):
     }
     return render(request, 'library/liste.html', context)
 
+
 def resultat(request):
+    context = {}
+    if request.method == "POST":
+        search_input = request.POST['search_input'].lower()
+        books = Book.objects.filter(name_book__contains=search_input)
 
-    if request.method == 'POST': 
-        searchInput = request.POST["searchInput"]
-        searchInput.lower()
+        books_date = Book.objects.filter(date_book__contains=search_input)
 
-        b = Book.objects.all()
-        c =  Category.objects.all()
-        l =  Langage.objects.all()
-        a = Author.objects.all()
+        books_author = Book.objects.filter(author__name_author__contains=search_input)
 
-        book = []
-        category = []
-        langage = []
-        author = []
+        books_firstname = Book.objects.filter(author__firstname_author__contains=search_input)
 
-        for item in b:
-            info = item.readLines().lower()
-            if info.find(searchInput) != -1:
-                book.append(item)
+        books_language = Book.objects.filter(language__name_langage__contains=search_input)
 
-        for item in c:
-            info = item.readLines().lower()
-            if info.find(searchInput) != -1:
-                category.append(item)
+        books_category = Book.objects.filter(category__name_category__contains=search_input)
 
-        for item in l:
-            info = item.readLines().lower()
-            if info.find(searchInput) != -1:
-                langage.append(item)
-
-        for item in a:
-            info = item.readLines().lower()
-            if info.find(searchInput) != -1:
-                author.append(item)
-
-        template = loader.get_template('library/resultat.html')
         context = {
-            'book': book,
-            'category': category,
-            'langage': langage,
-            'author': author,
-            }
+            'search_input': search_input,
+            'books' :books,
+            'books_firstname': books_firstname,
+            'books_date': books_date,
+            'books_author': books_author,
+            'books_language': books_language,
+            'books_category': books_category,
+        }
 
-        return HttpResponse(template.render(context, request))
+        return render(request, 'library/resultat.html', context)
     else:
-        return render(request, 'library/resultat.html')
+        return render(request, 'library/resultat.html', context)

@@ -30,13 +30,16 @@
 
     <!-- search section -->
     <div class="searchbar">
-        <h1 class="titreH1" data-aos="fade-right" data-aos-duration="2000" data-aos-easing="ease-in-out">Bibliothèque de Tianjin</h1>
-        <h2 class="titreH2" data-aos="fade-left" data-aos-duration="2000">Un chef d’oeuvre architectural pour célébrer la culture et les livres</h2>
-        <form method="post" action="{% url 'library:resultat' %}">
+        <h1 class="titre_search" data-aos="zoom-out" data-aos-duration="1500" data-aos-easing="ease-in-out">Bibliothèque de Tianjin</h1>
+        <h2 class="titre_search2" data-aos="zoom-out" data-aos-duration="1500">Un chef d’oeuvre architectural pour célébrer la culture et les livres</h2>
+        <form method="POST" action="{% url 'library:resultat' %}">
             {% csrf_token %}
-            <input type="text" id="searchInput" name="searchInput"/>
-            <input type="submit" value="Rechercher">
+            <input type="search" id="search_input" name="search_input" placeholder="Recherche">
+            <button type="submit" id="search_button">
+                <i class="fa fa-search"></i>
+            </button>
         </form>
+        <p>Tags : <a href="#">Catégorie</a>, <a href="#">Auteur</a>, <a href="#">Langue</a>, <a href="{% url 'library:resultat' %}">Titre</a></p>
     </div>
 
     {% block content %} 
@@ -55,7 +58,7 @@
         </div>
     </div>
     
-    <!-- livres -->
+    <!-- nouveautés content -->
     {% if list_book %}    
         <div class="container">
             <h1 data-aos="fade-right" data-aos-duration="2000" class="titreH1">Nos nouveautés</h1>

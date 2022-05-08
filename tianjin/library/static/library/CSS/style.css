@@ -7,17 +7,7 @@
     font-family: 'Cormorant Garamond', serif;
 }
 
-/* === navbar CONTENT === */
-.titre_gros{
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    font-size: clamp(20px, 9vh, 40px);
-    font-weight: 800;
-    color: #000;
-    margin-top: 50px;
-}
-
+/* ========= TITRE CONTENT ========= */
 .titreH1{
     text-align: center;
     text-transform: uppercase;
@@ -39,6 +29,7 @@
     text-shadow: 2px 3px 5px #00000080;
 }
 
+/* ========= NAVBAR CONTENT ========= */
 #navbar {
     top: 0;
     width: 100%;
@@ -49,18 +40,32 @@
     padding-top: 10px;
 }
 
-.searchbar{
-    background-image: url("../images/nolan-monaghan-lw4UnxDBZ6c-unsplash.jpg");
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
+.nav {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 500px;
+    right: 2%;
+    top: 3.5%;
 }
 
+.nav a{
+    text-transform: uppercase;
+    font-weight: 800;
+    text-decoration: none;
+    color: #ad1a1a;
+    padding: 12px;
+    text-shadow: 2px 3px 5px #00000080;
+    letter-spacing: 3px;
+}
+
+.nav a:hover{
+    transition: 0.3s ease-in-out;
+    background-color: #ad1a1a;
+    color: #fff;
+    border-radius: 3px;
+}
+
+/* =========  lOGO =========*/
 .logo a{
     text-decoration: none;
     color: inherit;
@@ -94,32 +99,97 @@
     text-shadow: 2px 3px 5px #00000080;
 }
 
-.nav {
+/* ========= SERCHBAR CONTENT ========= */
+.titre_search{
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: clamp(20px, 9vh, 40px);
+    font-weight: 800;
+    color: #fff;
+    padding-top: 50px;
+    text-shadow: 2px 3px 5px #000;
+}
+
+.titre_search2{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #fff;
+    text-shadow: 2px 3px 5px #000000;
+}
+
+.titre_resultat{
+    text-align: center;
+    font-weight: 200;
+    letter-spacing: 2px;
+    color: #ad1a1a;
+    text-shadow: 2px 3px 5px #000000;
+}
+
+.searchbar p a,
+.searchbar p{
+    text-decoration: none;
+    color: #fff;
+    text-shadow: 2px 3px 5px #000000;
+    font-size: 20px;
+}
+
+.searchbar p a:hover{
+    color: #ad1a1a;
+}
+
+.searchbar{
+    background-image: url("../images/nolan-monaghan-lw4UnxDBZ6c-unsplash.jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    right: 2%;
-    top: 3.5%;
+    height: 500px;
+    width: 100%;
 }
 
-.nav a{
-    text-transform: uppercase;
-    font-weight: 800;
-    text-decoration: none;
+form{
+    display: flex;
+}
+
+#search_input{
+    border: 0px;
+    padding: 25px;
+    padding-right: 100px;
+    width: 500px;
+    display: block;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+    margin-top: 30px;
+    height: 54px;
+    box-shadow: 2px 3px 5px #00000080;
+    font-size: 20px;
+}
+
+#search_button {
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+    background: #ad1a1a;
+    border: 0px;
+    padding: 10px 30px;
+    height: 54px;
+    margin-top: 30px;
+    box-shadow: 2px 3px 5px #00000080;
+}
+
+#search_button:hover{
+    background-color: #fff;
     color: #ad1a1a;
-    padding: 12px;
-    text-shadow: 2px 3px 5px #00000080;
-    letter-spacing: 3px;
 }
 
-.nav a:hover{
-    transition: 0.3s ease-in-out;
-    background-color: #ad1a1a;
-    color: #fff;
-    border-radius: 3px;
-}
-
-/* === header === */
+/* ========= INDEX ========= */
+/* ========= HEADER CONTENT ========= */
 .header{
     margin-bottom: -80px;
 }
@@ -152,7 +222,7 @@
 }
 
 
-/* === CARD INDEX BOOK === */
+/* ========= NOUVEAUTE CONTENT ========= */
 .container{
     width: 100vw;
     height: 100vh;
@@ -203,6 +273,7 @@
     text-align: justify;
 }
 
+/* =========  BOUTON NOUVEAUTE CONTENT========= */
 .bk-info button {
     background: #ad1a1a;
     border: none;
@@ -332,7 +403,6 @@
     transform: rotate3d(1, 0, 0, -90deg) translate3d(0, 0, 390px);
 }
 
-  /* Transform classes */
 .bk-list li .bk-viewinside .bk-front {
     transform: translate3d(0, 0, 20px) rotate3d(0, 1, 0, -160deg);
 }
@@ -344,8 +414,6 @@
 .bk-list li .bk-book.bk-viewback {
     transform: translate3d(0, 0, 0px) rotate3d(0, 1, 0, 180deg);
 }
-
-/* Main colors and content */
 
 .bk-list li .bk-page,
 .bk-list li .bk-right,
@@ -393,7 +461,7 @@
     transform: rotate(90deg) translateY(-40px);
 }
 
-  /* Book  */
+/* ========= LIVRE PARAMETERS =========*/
 .book-1 .bk-front > div,
 .book-1 .bk-back,
 .book-1 .bk-left,
@@ -455,7 +523,7 @@
 
 }
 
-/* Fallbacks */
+/*========= RESUME LIVRE ANIMATION =========*/
 .no-csstransforms3d .bk-list li .bk-book > div,
 .no-csstransforms3d .bk-list li .bk-book .bk-cover-back {
     display: none;
@@ -470,7 +538,7 @@
     display: none;
 }
 
-/* === Creator content === */
+/* ========= ARCHITECT CONTENT ========= */
 .creator{
     width: 1000px;
     height: 550px;
@@ -486,7 +554,6 @@
     justify-content: center;
     align-items: center;
     margin: 20px;
-    /* padding: -20px; */
 }
 
 .descr p{
@@ -505,7 +572,7 @@
     object-position: center;
 }
 
-/* === background image fixed === */
+/* ========= FIXED BACKGROUND PARAMETERS ========= */
 .bg_index{
     width: 100%;
     height: 700px;
@@ -516,7 +583,7 @@
     padding: 50px;
 }
 
-/* footer */
+/* ========= FOOTER =========*/
 .footer{
     width: 100%;
     display: flex;
