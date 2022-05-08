@@ -20,12 +20,14 @@ def index(request):
     }
     return render(request, 'library/index.html', context)
 
+
 def detail(request, book_id):
     book = get_object_or_404(Book, pk=book_id)
     context = {
         'book': book
     }
     return render(request, 'library/detail.html', context)
+
 
 def liste(request):
     book = Book.objects.order_by('id')
@@ -39,6 +41,16 @@ def liste(request):
         'author': author,
     }
     return render(request, 'library/liste.html', context)   
+
+
+def list_by_category(request):
+    category =  Category.objects.all()
+    book_list = Book.objects.filter(category = category)
+    context = {
+        'category': category,
+        'book_list': book_list
+    }
+    return render(request, 'library/list_by_category.html', context)
 
 
 def resultat(request):

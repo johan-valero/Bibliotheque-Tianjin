@@ -38,7 +38,7 @@
                 <i class="fa fa-search"></i>
             </button>
         </form>
-        <p>Tags : <a href="#">Catégorie</a>, <a href="#">Auteur</a>, <a href="#">Langue</a>, <a href="{% url 'library:resultat' %}?category">Titre</a></p>
+        <p>Tags : <a href="{% url 'library:list_by_category' %}">Catégorie</a>, <a href="#">Auteur</a>, <a href="#">Langue</a>, <a href="#">Titre</a></p>
     </div>
 
     {% block content %} 
@@ -49,7 +49,7 @@
                 <source src="../../static/library/images/pexels-muhammad-shukri-shuk-6623626.mp4" type="video/mp4">
             </video>
             <div class="header_descr">
-                <h2 data-aos="fade-right" data-aos-duration="2000">La bibliothèque de Tianjin des livres comme s’il en pleuvait !</h2>
+                <h2 data-aos="fade-right" data-aos-duration="1000">La bibliothèque de Tianjin des livres comme s’il en pleuvait !</h2>
                 <p> 
                     Ce projet s’inscrit dans un Masterplan visant à doter Tianjin, grande ville portuaire située à une centaine de kilomètres de Pékin, d’un quartier culturel. Seules trois années séparent le moment où le Néerlandais Winy Maas et son agence MVRDV dessinent les premières esquisses de la bibliothèque, et son inauguration en 2017. Au centre de l’atrium trône une immense sphère lumineuse abritant un auditorium. Autour de cet « œil » se déploient, du sol au plafond, des étagères ondulantes dotées d’escaliers : on peut y circuler librement, s’y asseoir ou même discuter… Inutile toutefois d’essayer d’accéder aux rangées les plus élevées. Pour respecter le court délai de livraison, l’architecte n’a pas pu concrétiser la totalité de son projet. Les livres placés en hauteur sont donc des trompe-l’œil !
                 </p>
@@ -60,9 +60,9 @@
     <!-- nouveautés content -->
     {% if list_book %}    
         <div class="container">
-            <h1 data-aos="fade-right" data-aos-duration="2000" class="titreH1">Nos nouveautés</h1>
+            <h1 data-aos="fade-right" data-aos-duration="1000" class="titreH1">Nos nouveautés</h1>
             {% for book in list_book|slice:":4" %}
-                <div data-aos="fade" data-aos-duration="2000"  class="main">
+                <div data-aos="fade" data-aos-duration="1000"  class="main">
                     <ul id="bk-list" class="bk-list clearfix">
                         <li>
                             <div class="bk-book book-1 bk-bookdefault">
@@ -118,10 +118,10 @@
     <div class="bg_index">
     <center>
         <div class="creator">
-            <h1 data-aos="fade-right" data-aos-duration="2000" class="titreH1">Architecte</h1>
-            <h2 data-aos="fade-left" data-aos-duration="2000" class="titreH2">Winy Maas</h2>
+            <h1 data-aos="fade-right" data-aos-duration="1000" class="titreH1">Architecte</h1>
+            <h2 data-aos="fade-left" data-aos-duration="1000" class="titreH2">Winy Maas</h2>
             <div class="descr">
-                <p data-aos="fade" data-aos-duration="2000">
+                <p data-aos="fade" data-aos-duration="1000">
                     "Je compare le projet à ceux des concepteurs de bibliothèques du XVIIIe siècle. Leur volonté était de montrer les livres, de les mettre en valeur. Ces constructions sont monumentales et apportent ainsi une merveilleuse noblesse aux ouvrages qu’elles présentent. Pour moi, ces lieux sont très inspirants et me donnent envie de m’y attarder pour découvrir toujours plus de livres. Nous avons donc essayé de créer le même effet, mais avec une touche de modernité, bien sûr.
     
                     Trois ans se sont écoulés entre le premier croquis et l’ouverture du bâtiment. Pour une construction de cette taille, tout a été extrêmement rapide. Nous sommes très satisfaits du résultat, même si tout ne s’est pas déroulé exactement comme nous l’avions prévu. En effet, lors de son ouverture, la bibliothèque a essuyé plusieurs critiques, notamment pour ses trompe-l’oeil." 
@@ -134,9 +134,19 @@
     {% endblock %}
 
     <!-- footer section -->
-    <footer>
-        <div class="footer">
-            By Kheandee, Ace and Mojo-jojo
+    <footer class="footer">
+        <div class="logo" style="padding-top: 50px;">
+            <a href="{% url 'library:index' %}">
+                <h1>Bibliothèque de Tianjin</h1>
+                <h2>天津滨海图书馆</h2>
+            </a>
+        </div>
+        <div class="logo_centre">
+            <p>ADRAR project by Kheandee, Ace and Mojo-jojo</p>
+        </div>
+        <div class="mao">
+            <img src="{% static 'library/images/mao.png' %}">
+            <p class="mao_p">Approved by our leader.</p>
         </div>
     </footer>
 

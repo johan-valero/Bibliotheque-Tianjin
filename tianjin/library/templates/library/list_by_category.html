@@ -1,14 +1,14 @@
-{% extends "library/index.html" %}
+{% extends "library/liste.html" %}
 {% load static %}
 {% load i18n %}
 
 {% block content %}
-<!-- livres -->
-    <h1 data-aos="fade-right" data-aos-duration="1500" class="titreH1"> Nos livres disponibles</h1>
+    <!-- livres -->
+    <h1 data-aos="fade-right" data-aos-duration="2000" class="titreH1"> Nos livres par catégories</h1>
             
     <div class="container">
-        {% for book in book %}
-            <div data-aos="fade" data-aos-duration="1000"  class="main">
+        {% for book in book_list %}
+            <div data-aos="fade" data-aos-duration="3000"  class="main">
                 <ul id="bk-list" class="bk-list clearfix">
                     <li>
                         <div class="bk-book book-1 bk-bookdefault">
