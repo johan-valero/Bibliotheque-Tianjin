@@ -4,7 +4,8 @@
 
 {% block content %}
     <!-- Category List -->
-    {% if list_book %}    
+    {% if list_book %}
+    <h1 data-aos="fade-right" data-aos-duration="1000" class="titreH2">Genre littéraire</h1>    
     <h1 data-aos="fade-right" data-aos-duration="1000" class="titreH1">{{ category.name_category}}</h1>
         <div class="container">
             {% for book in list_book %}

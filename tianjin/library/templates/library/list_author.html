@@ -4,7 +4,8 @@
 
 {% block content %}
     <!-- Category List -->
-    {% if list_book %}    
+    {% if list_book %}  
+    <h1 data-aos="fade-right" data-aos-duration="1000" class="titreH2">Auteur</h1>  
     <h1 data-aos="fade-right" data-aos-duration="1000" class="titreH1">{{ author.name_author}} {{ author.firstname_author}}</h1>
         <div class="container">
             {% for book in list_book %}
