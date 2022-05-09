@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+{% load static %}
+{% load i18n %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/8e8d5e63b3.js"></script><!--Icone -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> <!-- AOS Librairy-->
+    <link rel="stylesheet" type="text/css" href="{% static 'library/CSS/detail.css' %}"> <!--CSS-->
+    <title>Tianjin Library &mdash; Détails</title>
+</head>
+<body>
+
+    <!-- nav bar -->
+    <div id="navbar">
+        <div class="logo">
+            <a href="{% url 'library:index' %}">
+                <h1 data-aos="fade-right" data-aos-duration="2000">Bibliothèque de Tianjin</h1>
+                <h2 data-aos="fade-left" data-aos-duration="2000">天津滨海图书馆</h2>
+            </a>
+        </div>
+        <div data-aos="fade-left" data-aos-duration="2000"  class="nav">
+            <a href="{% url 'library:index' %}">Accueil</a>
+            <a href="{% url 'library:liste' %}">Livres</a>
+            <a href="{% url 'library:category' %}">Catégories</a>
+        </div>
+    </div>
+
+    <!-- search section -->
+    <div class="searchbar">
+        <h1 class="titre_search" data-aos="zoom-out" data-aos-duration="1500" data-aos-easing="ease-in-out">Bibliothèque de Tianjin</h1>
+        <h2 class="titre_search2" data-aos="zoom-out" data-aos-duration="1500">Un chef d’oeuvre architectural pour célébrer la culture et les livres</h2>
+        <form method="POST" action="{% url 'library:resultat' %}">
+            {% csrf_token %}
+            <input type="search" id="search_input" name="search_input" placeholder="Recherche">
+            <button type="submit" id="search_button">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+        <p>Tags : <a href="#">Catégorie</a>, <a href="#">Auteur</a>, <a href="#">Langue</a>, <a href="{% url 'library:resultat' %}?category">Titre</a></p>
+    </div>
+
+
+    {% block content %}
+    <section class="container_book_detail">
+        <div class="book" style="--pages: 15">
+            <div class="cover page">
+                <div class="cover-content">
+                    <img src="{{ book.picture_book.url }}">
+                    <h2>{{ book.name_author }}</h2>
+                </div>
+            </div>
+            <div class="page" style="--id: 1"></div>
+            <div class="page" style="--id: 2"></div>
+            <div class="page" style="--id: 3"></div>
+            <div class="page" style="--id: 4"></div>
+            <div class="page" style="--id: 5"></div>
+            <div class="page" style="--id: 6"></div>
+            <div class="page" style="--id: 7"></div>
+            <div class="page" style="--id: 8"></div>
+            <div class="page" style="--id: 9"></div>
+            <div class="page" style="--id: 10"></div>
+            <div class="page" style="--id: 11"></div>
+            <div class="page" style="--id: 12"></div>
+            <div class="page" style="--id: 13"></div>
+            <div class="page" style="--id: 14"></div>
+            <div class="page" style="--id: 15"></div>
+            <main class="page" style="--id: 15">
+                <h1>{{ book.name_book }}</h1>
+                <div class="border_bar"></div>
+                <br>
+                <h2>Synopsis</h2>
+                <p>{{ book.synopsis_book}}</p>
+                <div class="author_detail">
+                    <h2>Ecrit par</h2>
+                    <h3>{{ book.author.name_author }} {{ book.author.firstname_author }}</h3>
+                    {% language 'fr' %}
+                        <p><b>Date de naissance :</b></p>  
+                        <p>{{ book.author.birthdate_author|date:'d F Y' }}</p>
+                    {% endlanguage %}
+                    <img src="{{ book.author.picture_author.url }}">
+                </div>
+                <br>
+                <h2>Description</h2>
+                <p>
+                {% language 'fr' %}
+                    <b>Date de publication</b> : {{ book.date_book|date:'d F Y' }}
+                {% endlanguage %}
+                </p>
+                <p><b>Catégorie</b> : {{ book.category }}</p>
+                <p><b>Langue</b> : {{ book.language }}</p>
+            </main>
+            <div class="back page"></div>
+        </div>
+    </section>
+
+    <!-- footer section -->
+    <footer class="footer">
+        <div class="logo" style="padding-top: 50px;">
+            <a href="{% url 'library:index' %}">
+                <h1>Bibliothèque de Tianjin</h1>
+                <h2>天津滨海图书馆</h2>
+            </a>
+        </div>
+        <div class="logo_centre">
+            <p>ADRAR project by Kheandee, Ace and Mojo-jojo</p>
+        </div>
+        <div class="mao">
+            <img src="{% static 'library/images/mao.png' %}">
+            <p class="mao_p">Approved by our leader.</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'library/JS/animate.js' %}"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <!-- END SCRIPT -->
+</body>
+</html>
+{% endblock %}

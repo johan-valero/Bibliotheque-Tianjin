@@ -1,0 +1,62 @@
+{% extends "library/liste.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+    <!-- Category -->
+    <h1 data-aos="fade-right" data-aos-duration="2000" class="titreH1"> Nos catégories</h1>
+        <div class="contain_categ">
+            <div class="container_category">
+                <div class="items">
+                    <div class="items-head">
+                        <p>Genres littéraires</p>
+                        <hr>
+                    </div>
+                    {% for categ in category_list %}
+                        <div class="items-body">
+                            <div class="items-body-content">
+                                <a href="{% url 'library:list_category' categ.id %}"><span>{{ categ.name_category }}</span></a>
+                                <i class="fa fa-angle-right"></i>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="container_category">
+                <div class="items">
+                    <div class="items-head">
+                        <p>Langues</p>
+                        <hr>
+                    </div>
+                    {% for categ in langage %}
+                        <div class="items-body">
+                            <div class="items-body-content">
+                                <a href="{% url 'library:list_langage' categ.id %}"><span>{{ categ.name_langage }}</span></a>
+                                <i class="fa fa-angle-right"></i>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="container_category">
+                <div class="items">
+                    <div class="items-head">
+                        <p>Auteurs</p>
+                        <hr>
+                    </div>
+                    {% for categ in author %}
+                        <div class="items-body">
+                            <div class="items-body-content">
+                                <a href="{% url 'library:list_author' categ.id %}"><span>{{ categ.name_author }} {{ categ.firstname_author }}</span></a>
+                                <i class="fa fa-angle-right"></i>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+<!-- fin category -->
+{% endblock %}
