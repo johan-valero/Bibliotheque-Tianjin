@@ -54,13 +54,32 @@ def category(request):
     return render(request, 'library/category.html', context)
 
 def list_category(request, category_id):
-    category = get_object_or_404(Category, pk=category_id)
+    category1 = get_object_or_404(Category, pk=category_id)
     list_book = Book.objects.filter(category_id=category_id).values()
     context = {
-        'category':category,
+        'category':category1,
         'list_book': list_book,
     }
     return render(request, 'library/list_category.html', context)
+
+def list_langage(request, language_id):
+    langage = get_object_or_404(Langage, pk=language_id)
+    list_book = Book.objects.filter(language_id=language_id).values()
+    context = {
+        'langage':langage,
+        'list_book': list_book,
+    }
+    return render(request, 'library/list_langage.html', context)
+
+def list_author(request, author_id):
+    author = get_object_or_404(Author, pk=author_id)
+    list_book = Book.objects.filter(author_id=author_id).values()
+    context = {
+        'author':author,
+        'list_book': list_book,
+    }
+    return render(request, 'library/list_author.html', context)
+
 
 def resultat(request):
     context = {}
