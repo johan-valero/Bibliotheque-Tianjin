@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    #command: gunicorn --chdir /code/tianjin tianjin.wsgi:application --bind 0.0.0.0:8000
+    volumes:
+      - static_volume:/code/staticfiles
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+  db:
+    image: mariadb
+    env_file:
+      - .env
+    volumes:
+      - mariadb_data:/var/lib/mysql/data
+  nginx:
+    build: ./nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - web
+    volumes:
+      - static_volume:/code/staticfiles
+volumes:
+  mariadb_data:
+  static_volume:
+

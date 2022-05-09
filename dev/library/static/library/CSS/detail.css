@@ -1,0 +1,384 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+:root {
+    --color-cover: #ad1a1a;
+    --color-cover-text: #edd7ab;
+    --duration: 5000ms;
+    --initial-delay: 500ms;
+}
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+/* ========= NAVBAR CONTENT ========= */
+#navbar {
+    top: 0;
+    width: 100%;
+    height: 80px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 2%;
+    top: 3.5%;
+}
+
+.nav a{
+    text-transform: uppercase;
+    font-weight: 800;
+    text-decoration: none;
+    color: #ad1a1a;
+    padding: 12px;
+    text-shadow: 2px 3px 5px #00000080;
+    letter-spacing: 3px;
+}
+
+.nav a:hover{
+    transition: 0.3s ease-in-out;
+    background-color: #ad1a1a;
+    color: #fff;
+    border-radius: 3px;
+}
+
+/* =========  lOGO =========*/
+.logo a{
+    text-decoration: none;
+    color: inherit;
+    padding-top: 15px;
+}
+
+.logo h1{
+    width: 250px;
+    height: 70px;
+    cursor: pointer;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-weight: 800;
+    text-align: center;
+    color: #ad1a1a;
+    text-shadow: 2px 3px 5px #00000080;
+}
+
+.logo h2{
+    width: 250px;
+    height: 70px;
+    cursor: pointer;
+    font-size: 20px;
+    margin-top: -30px;
+    text-transform: uppercase;
+    font-weight: 200;
+    letter-spacing: 2px;
+    color: #000;
+    text-align: center;
+    text-shadow: 2px 3px 5px #00000080;
+}
+
+/* ========= SERCHBAR CONTENT ========= */
+.titre_search{
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: clamp(20px, 9vh, 40px);
+    font-weight: 800;
+    color: #fff;
+    padding-top: 50px;
+    text-shadow: 2px 3px 5px #000;
+}
+
+.titre_search2{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #fff;
+    text-shadow: 2px 3px 5px #000000;
+}
+
+.titre_resultat{
+    text-align: center;
+    font-weight: 200;
+    letter-spacing: 2px;
+    color: #ad1a1a;
+    text-shadow: 2px 3px 5px #000000;
+}
+
+.searchbar p a,
+.searchbar p{
+    text-decoration: none;
+    color: #fff;
+    text-shadow: 2px 3px 5px #000000;
+    font-size: 20px;
+}
+
+.searchbar p a:hover{
+    color: #ad1a1a;
+}
+
+.searchbar{
+    background-image: url("../images/nolan-monaghan-lw4UnxDBZ6c-unsplash.jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    width: 100%;
+}
+
+form{
+    display: flex;
+}
+
+#search_input{
+    border: 0px;
+    padding: 25px;
+    padding-right: 100px;
+    width: 500px;
+    display: block;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+    margin-top: 30px;
+    height: 54px;
+    box-shadow: 2px 3px 5px #00000080;
+    font-size: 20px;
+}
+
+#search_button {
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+    background: #ad1a1a;
+    border: 0px;
+    padding: 10px 30px;
+    height: 54px;
+    margin-top: 30px;
+    box-shadow: 2px 3px 5px #00000080;
+}
+
+#search_button:hover{
+    background-color: #fff;
+    color: #ad1a1a;
+}
+
+
+/* ========= BOOK CONTENT ========= */
+
+.container_book_detail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+}
+
+.book {
+    width: 67vh;
+    height: 100vh;
+    border-radius: 0 24px 24px 0;
+    transform-style: preserve-3d;
+    transform: scale(0.5) rotateX(60deg) rotateZ(30deg);
+    animation: move-book var(--duration) ease-in-out forwards;
+    animation-delay: var(--initial-delay);
+}
+
+.page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #edd7ab;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1), transparent 10%) #edd7ab;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: inherit;
+    z-index: calc(var(--pages) - var(--id, 0));
+    transform: translateZ(calc(var(--id, 0) * -1px));
+    transform-origin: 0 0;
+    animation: turn-page var(--duration) ease-in-out forwards;
+    --increment: calc(var(--duration) / (var(--pages) * 2));
+    animation-delay: calc( var(--id, 0) * var(--increment) + var(--initial-delay) * 2 );
+}
+
+main.page {
+    animation: none;
+    padding: 32px;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+main h1{
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 40px;
+    font-weight: 800;
+    color: #000;
+}
+
+main p{
+    text-align: center;
+    color: #000;
+}
+
+main h2{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 200;
+    letter-spacing: 2px;
+    color: #ad1a1a;
+}
+
+.cover {
+    width: 100%;
+    height: 100%;
+    color: var(--color-cover-text);
+    z-index: var(--pages);
+    padding: 5%;
+    box-sizing: border-box;
+    font-size: clamp(12px, 2.2vh, 36px);
+}
+.cover .cover-content {
+    position: relative;
+    justify-items: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    object-fit: cover;
+    border: 12px double var(--color-cover-text);
+    text-align: center;
+}
+
+.cover img {
+    width: 100%;
+    height: 100%;
+}
+
+.cover,
+.back,
+.spine {
+    background: var(--color-cover);
+}
+
+.back {
+    transform: translateZ(calc(var(--pages) * -1px));
+    animation: none;
+    z-index: 0;
+}
+
+.spine {
+    position: absolute;
+    height: 100%;
+    width: calc(var(--pages) * 1px + 2px);
+    transform-origin: 100% 100%;
+    transform: translateZ(calc(var(--pages) * -1px)) translateX(calc(var(--pages) * -1px)) rotateY(90deg);
+    animation: fold-spine 3s ease-in-out forwards;
+}
+
+@keyframes move-book {
+    from {
+        perspective: 2000px;
+        transform: scale(0.5) rotateX(60deg) rotateZ(30deg);
+    }
+    to {
+        perspective: 5000px;
+        transform: scale(1) rotateX(0deg) rotateZ(0deg);
+    }
+}
+@keyframes fold-spine {
+    from {
+        transform: translateZ(calc(var(--pages) * -1px)) translateX(calc(var(--pages) * -1px)) rotateY(90deg);
+    }
+    to {
+        transform: translateZ(calc(var(--pages) * -1px)) translateX(calc(var(--pages) * -1px)) rotateY(0deg);
+    }
+}
+@keyframes turn-page {
+    from {
+        transform: translateZ(calc(var(--id, 0) * -1px)) rotateY(0);
+    }
+    to {
+        transform: translateZ(calc((var(--pages) - var(--id, 0)) * -1px)) rotateY(-180deg);
+    }
+}
+/* ========= INFO AUTHOR =========*/
+
+.author_detail{
+    padding: 35px;
+}
+
+.author_detail p{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.author_detail h3{
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #000;
+}
+
+.author_detail img{
+    width: 250px;
+    height: 250px;
+    margin-left: 120px;
+    margin-right: auto;
+    border-radius: 50%;
+    margin-top: 30px;
+    border: #000 double 5px;
+    object-fit: cover;
+}
+
+.border_bar{
+    border: rgba(0, 0, 0, 0.377) solid 0.5px;
+    text-align: center;
+}
+
+/* ========= FOOTER =========*/
+.footer{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 25px;
+    color: #000;
+    position: static;
+    bottom: 0;
+}
+
+.footer p{
+    font-weight: 500;
+    text-shadow: 2px 3px 5px #00000080;
+}
+
+.mao{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mao img{
+    width: 70px;
+    height: 70px;
+}
+
+.mao_p{
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
