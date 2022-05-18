@@ -686,7 +686,7 @@ form{
     align-self: center;
     font-size: 20px;
     color: #ad1a1a;
-    animation: icon 1.5s infinite forwards;
+    animation: icon 1.25s infinite forwards;
 }
 
 @keyframes icon {
@@ -694,7 +694,7 @@ form{
         transform: translate(0px);
     }
     50% {
-        transform: translate(3px);
+        transform: translate(5px);
     }
 }
 
